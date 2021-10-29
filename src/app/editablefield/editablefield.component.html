@@ -1,0 +1,4 @@
+<div [class.filled]="text.length">
+  <input type="text" [(ngModel)]="text" name="text" [placeholder]="placeholder" spellcheck="false" (focusout)="sendBack(text)" (keyup.enter)="sendBack(text)">
+  <div contenteditable="true">{{text}}</div>
+</div>

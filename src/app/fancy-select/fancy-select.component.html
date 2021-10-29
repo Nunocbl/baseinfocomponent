@@ -1,0 +1,25 @@
+<div #selected class="selected" tabindex="-1" (keydown)="onKeydown($event)">
+
+    <div class="result">
+        <span *ngIf="selectedItem == ''">{{placeholder}}</span>
+        <span *ngIf="selectedItem != ''">{{selectedItem}} </span>
+    </div>
+
+    <input #searchbox class="searchbox " type="text" name="myInput" id="myInput" [(ngModel)]="myInput"
+        [placeholder]="placeholder"  (click)="retryYourInput()" (blur)="onBlur()" (focus)='CheckIfElementIsBellow()' [style.opacity]='opaque'>
+
+
+    <div #gaveta class="gaveta" [class.inverted]="inView" >
+
+        <div  *ngIf="filtered_data.length == 0">
+            {{noOption}}
+        </div>
+
+        <div *ngFor="let item of filtered_data ;let i = index" [class.selected]="value==i"
+            (click)="imAChangedManByIndex(i)" (mouseover)="hoverFn(i)" (keydown.enter)="imAChangedManByIndex(i)" #mini
+            >
+                {{item}}
+        </div>
+    </div>
+
+</div>

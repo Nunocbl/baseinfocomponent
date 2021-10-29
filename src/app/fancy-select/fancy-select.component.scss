@@ -1,0 +1,84 @@
+:host > div {
+    position: relative;
+    min-height: 30px;
+    overflow: visible;
+    // font-size: 1rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid #aaaaaa;
+
+    .searchbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-left: 1.5rem;
+        box-sizing: border-box;
+        border: 0;
+        box-shadow: none;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 50ms linear 0.1ms;
+        border-color: #aaaaaa;
+    }
+
+
+    .result{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        box-shadow: none;
+        z-index: 1;
+        padding: 1rem;
+        padding-left: 1.5rem;
+        border: 0;
+
+    }
+
+    .gaveta {
+        margin: 0 -1px 0 -1px;
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        max-height: 0;
+        overflow: hidden;
+        background-color: white;
+        z-index: 10;
+        // border-color: #aaaaaa;
+
+        *:nth-child(even) {
+            background-color: rgb(240, 240, 240);
+        }
+
+        div {
+            font-size: 1rem;
+            padding: 0.5rem;
+            &.selected {
+                background-color: grey;
+                color: white;
+            }
+
+            }
+            &.inverted{
+                top:auto;
+                bottom: 100%;
+            }
+
+    }
+
+    &:focus-within .gaveta {
+        transition: max-height 0.3s linear;
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #aaaaaa;
+
+    }
+
+
+
+}

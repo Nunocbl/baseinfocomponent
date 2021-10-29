@@ -1,0 +1,95 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: max-height 0.5s ease-in-out;
+
+    .outcontainer {
+        padding: 3rem;
+        transform: scale(1);
+        transform-origin: center;
+        transition: transform 0.25s linear 0.22s;
+        min-width: 400px;
+        max-width: 1000px;
+        max-height: 70%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        background-color: white;
+        overflow: hidden;
+        border-radius: 5px;
+        z-index: 10;
+        .flex{
+            display: flex;
+            justify-content: space-between;
+            .title{
+                justify-self: center;
+            }
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            max-width: 1000px;
+            max-height: 550px;
+            padding: 1rem;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+    }
+    &.hidden {
+        max-height: 0;
+        .outcontainer {
+            transition: transform 0.5s linear;
+            transform: scale(0);
+        }
+    }
+}
+button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    align-self:flex-start;
+}
+
+.exitbtn {
+    float: right;
+}
+//scrollbar
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}
+.fadein {
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    height:  10px;
+    width: 300px;
+    overflow-y: scroll;
+  }

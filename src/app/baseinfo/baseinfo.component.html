@@ -1,0 +1,44 @@
+<div class="hostToCenter">
+    <div class="container">
+        <div class="radial">
+            <span >Escolha o tipo do produto</span>
+
+            <div>
+                <input type="radio" [(ngModel)]="simpleProduct" name="simpleProduct" [value]="true" checked>Produto
+                Simples<br>
+                <input type="radio" [(ngModel)]="simpleProduct" name="simpleProduct" [value]="false">Multi-produto
+
+            </div>
+        </div>
+
+        <editablefield class="title" [placeholder]="placeholderFortitle" (changeField)="titleText=$event"> </editablefield>
+
+        <div class="square">
+            <span>Logo</span>
+            <img src="https://via.placeholder.com/300" alt="">
+
+        </div>
+        <editablefield class="reference" [placeholder]="placeholderForRef" (changeField)="refText=$event"></editablefield>
+        <div>
+            <div *ngIf="simpleProduct">
+                <editablefield class="price" [placeholder]="placeholderForPrice" (changeField)="editPrice($event)"></editablefield>
+
+            </div>
+            <div *ngIf="!simpleProduct"></div>
+        </div>
+        <div class="selectRow">
+
+            <fselect [list]="Manufactors" [labelfrom]='labelBy' [valueBy]='valueBy'
+                [placeholder]='placeholderForManufactor'></fselect>
+        </div>
+        <div class="manufactorButtonDiv">
+            <button (click)="switch()">Nova Marca</button>
+        </div>
+
+
+    </div>
+</div>
+
+<modal (statechange)="switch()" [title]="titleForModal" [hidden]="hiddenModal"></modal>
+
+<div class="spacer"></div>
